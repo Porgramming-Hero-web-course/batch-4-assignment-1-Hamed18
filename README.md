@@ -8,3 +8,37 @@ What Are Intersection Types?
 An Intersection Type in TypeScript is the opposite of a Union Type. It allows you to combine multiple types into one, meaning that a value of an intersection type must satisfy all of the conditions of each type in the intersection.
 Ex: let employee: Person & Employee;
 
+
+Example :
+// union
+function printId(id: number | string) {  
+  console.log(`Your ID is: ${id}`);
+}
+printId(101);         
+printId('ABC123');     
+
+
+// intersection
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Employee {
+  company: string;
+  position: string;
+}
+
+function createEmployee(person: Person & Employee) {
+  console.log(`${person.name} work as a ${person.position} at ${person.company}.`);
+}
+const newEmployee = {
+  name: "Alice",
+  age: 30,
+  company: "Tech Corp",
+  position: "Software Engineer",
+};
+
+createEmployee(newEmployee); 
+
+
